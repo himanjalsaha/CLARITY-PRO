@@ -19,21 +19,21 @@ import { LiaSignInAltSolid } from "react-icons/lia";
 
 const Navbar = () => {
   return (
-    <nav  className='bg-black rounded-3xl  p-3 text-white flex flex-row justify-around sticky  '>
+    <nav  className='bg-black rounded-3xl w-[98%]   p-3 text-white flex flex-row justify-around    '>
       <div className='flex flex-row items-center'>
       <GiAbstract118 className=' w-10 h-10 mx-2' />
       <text className=' font-extrabold font-sans text-2xl'>ClarityPro</text>
       <ul className='flex flex-row items-center gap-4 font-semibold mx-5'>
-          <li className='flex flex-row items-center'>Features <FaChevronDown  className='mx-2'/></li>
+          <li className='flex flex-row items-center hover:overline '>Features <FaChevronDown  className='mx-2 '/></li>
 
-          <li className='flex flex-row items-center'>Components <FaChevronDown  className='mx-2'/></li>
-          <li className='flex flex-row items-center'>Documentation <FaChevronDown className='mx-2' /></li>
+          <li className='flex flex-row items-center hover:overline'>Components <FaChevronDown  className='mx-2'/></li>
+          <li className='flex flex-row items-center hover:overline'>Documentation <FaChevronDown className='mx-2' /></li>
         </ul>
       </div>
 
       <div className='flex items-center'>
       <ul className='flex flex-row items-center gap-4 font-semibold mx-5'>
-          <li className='flex flex-row items-center'>Sign in <LiaSignInAltSolid   className='mx-2 w-6 h-6'/></li>
+          <li className='flex flex-row items-center hover:overline'>Sign in <LiaSignInAltSolid   className='mx-2 w-6 h-6'/></li>
           <li className='flex flex-row items-center rounded-md bg-slate-50 text-black p-2 justify-center'><text>Quick Start</text> <FaChevronDown  className='mx-2'/></li>
         </ul>
       </div>

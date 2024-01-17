@@ -1,10 +1,16 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Header from '../components/Header'
+import LndingpageHero from '../components/LndingpageHero'
+import Features from '../components/Features'
+import TargetAudience from '../components/TargetAudience'
+import Footer from '../components/Footer'
 const LandingPage = () => {
   return (
-    <div className='bg-black p-5'><Navbar/>
-    <Header/>
+    <div className=' bg-black'>
+      <LndingpageHero/>
+      <Features/>
+      <TargetAudience/>
+      <Footer/>
+
     </div>
 
   )

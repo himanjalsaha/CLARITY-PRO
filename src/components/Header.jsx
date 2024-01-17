@@ -7,44 +7,50 @@ import { FcCollaboration } from "react-icons/fc";
 import { MdAppBlocking } from "react-icons/md";
 import { GrAchievement, GrProductHunt } from "react-icons/gr";
 import { BiLogoProductHunt } from "react-icons/bi";
+import { FaConnectdevelop } from "react-icons/fa";
+import { TypeAnimation } from 'react-type-animation';
+import blob from '../assets/blob.svg'
 const Header = () => {
   return (
-    <div className='flex flex-row   rounded-lg p-5 gap-10'>
+    <div className='  h-screen flex flex-row  p-5 gap-10'>
  
         
-        <div className=' flex-[0.6] flex items-center justify-center'>
-        <img src={img} alt="" className=' rounded-2xl  ' />
+        <div className=' flex-[0.49] flex items-center justify-center'>
+          <img src={blob} alt=""  className=' absolute'/>
+        <img src={img} alt="" className=' relative rounded-2xl  h-[56%] w-[56%]'  />
+        </div>
+        <div className=' flex-[0.6] flex justify-center items-center flex-col'>
+        <TypeAnimation 
+      sequence={[
+        // Same substring at the start will only be typed out once, initially
+        'Welcome to Clarity Pro: Your Path to Productivity Excellence',
+        1000, // wait 1s before replacing "Mice" with "Hamsters"
+        'Welcome to Clarity Pro: Your Path to Team Collaboration',
+        1000,
+        'Welcome to Clarity Pro: Your Path to Creativity',
+        1000,
+        'Welcome to Clarity Pro: Your Path to streamlined workflows',
+        1000
+      ]}
+      wrapper="span"
+      speed={50}
+      style={{ fontSize: '2em', display: 'inline-block', color:'white' , fontWeight:"bold"   }}
+      repeat={Infinity}
+    />
+    <text className='text-white  text-xl m-8'>
+    ~Elevate productivity with intelligent task management, collaboration, and AI-driven insights. Your path to streamlined workflows and success.
+    </text>
+
         </div>
 
-        <div className="relative flex-[0.4] group">
-  <div className="absolute card -inset-1 bg-gradient-to-r from-pink-600 to-violet-700 rounded-lg blur-xl  opacity-75 group-hover:opacity-100 transition duration-200 "></div>
-  <div className="card relative border-2 bg-black rounded-xl text-white w-full h-full">
-    <div className="flex justify-center items-center">
-      <PiTestTubeFill className="w-10 h-10 text-pink-600 mx-2" />
-      <text className="font-bold text-2xl m-3">Why Clarity-Pro</text>
-    </div>
-    <div className='flex justify-center text-2xl group-hover:text-gray-100 transition duration-200 p-2'>
-    <ul className='gap-2'>
-  <li className='m-1'><strong className='flex  items-center'> <AiOutlineTeam className="w-10 h-10 text-pink-600 mx-2"/>Seamless Task Management:</strong> Effortlessly organize and prioritize tasks to stay on top of your workload.</li>
-  
-  <li><strong className='flex  items-center'> <MdWorkspaces className="w-10 h-10 text-pink-600 mx-2" />Customizable Workspaces:</strong> Tailor your work environment to suit your unique needs and preferences.</li>
-  
-  <li><strong className='flex  items-center'><FcCollaboration className="w-10 h-10 text-pink-600 mx-2" />Efficient Collaboration:</strong> Collaborate effortlessly with team members, fostering a productive work environment.</li>
-  
-  <li><strong className='flex  items-center'><MdAppBlocking className="w-10 h-10 text-pink-600 mx-2" />Distraction Blocking:</strong> Stay focused by blocking distractions and optimizing your work environment.</li>
-  
-  <li><strong className='flex  items-center'><GrAchievement className="w-10 h-10 text-pink-600 mx-2"/>Achievement Celebration:</strong> Celebrate milestones and achievements, fostering a positive and motivating atmosphere.</li>
-  
-  <li><strong className='flex  items-center'><GrProductHunt className="w-10 h-10 text-pink-600 mx-2"/>Transformative Productivity:</strong> Clarity Pro is more than just a task manager; it's a transformative tool designed to elevate your overall productivity.</li>
 
-</ul>
-
+        
     </div>
-  </div>
-</div>
-
-    </div>
+    
   )
 }
 
 export default Header
+
+
+
