@@ -128,7 +128,7 @@ const Footer = () => {
 
       <div className="w-full p-4 text-center bg-opacity-20 bg-neutral-800">
         © 2023 Copyright :
-        <a className="text-white" href="/"> Ambimed Healthcare</a>
+        <a className="text-white" href="/"> claritypro</a>
       </div>
     </footer>
   );
