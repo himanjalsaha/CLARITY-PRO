@@ -1,45 +1,45 @@
 import React from 'react';
-import { FaFacebook,FaTwitter,FaInstagram,FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center bg-neutral-900 text-center text-white">
       <div className="container px-6 pt-6 m-10">
-      <div className="mb-6 flex justify-center items-center">
-        <a
-          href="#!"
-          type="button"
-          className="m-1 h-9 w-9 items-center flex justify-center rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
-          data-te-ripple-init
-          data-te-ripple-color="light">
-          <FaFacebook />
-          
-        </a>
-        <a
-          href="#!"
-          type="button"
-          className="m-1 h-9 w-9 rounded-full border-2 items-center flex justify-center border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
-          data-te-ripple-init
-          data-te-ripple-color="light">
-          <FaInstagram />
-        </a>
-        <a
-          href="#!"
-          type="button"
-          className="m-1 h-9 w-9 items-center flex justify-center rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
-          data-te-ripple-init
-          data-te-ripple-color="light">
-          <FaTwitter />
-        </a>
-        <a
-          href="#!"
-          type="button"
-          className="m-1 h-9 w-9 items-center flex justify-center rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
-          data-te-ripple-init
-          data-te-ripple-color="light">
-          <FaLinkedin />
-        </a>
-      </div>
+        <div className="my-6  flex justify-center items-center">
+          <a
+            href="#!"
+            type="button"
+            className="mx-4 h-9 w-9 items-center flex justify-center rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+            data-te-ripple-init
+            data-te-ripple-color="light">
+            <FaFacebook />
+
+          </a>
+          <a
+            href="#!"
+            type="button"
+            className="mx-4 h-9 w-9 rounded-full border-2 items-center flex justify-center border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+            data-te-ripple-init
+            data-te-ripple-color="light">
+            <FaInstagram />
+          </a>
+          <a
+            href="#!"
+            type="button"
+            className="mx-4 h-9 w-9 items-center flex justify-center rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+            data-te-ripple-init
+            data-te-ripple-color="light">
+            <FaTwitter />
+          </a>
+          <a
+            href="#!"
+            type="button"
+            className="mx-4 h-9 w-9 items-center flex justify-center rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+            data-te-ripple-init
+            data-te-ripple-color="light">
+            <FaLinkedin />
+          </a>
+        </div>
 
         <div>
           <form action="">
@@ -51,19 +51,19 @@ const Footer = () => {
               </div>
 
               <div className="relative md:mb-6" data-te-input-wrapper-init>
-  <label
-    htmlFor="exampleFormControlInput1"
-    className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-200 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-neutral-200 peer-data-te-input-state-active:-translate-y-[0.9rem] peer-data-te-input-state-active:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-  >
-  
-  </label>
-  <input
-    type="text"
-    className="peer block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[1.6] text-neutral-200 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-50 placeholder:text-neutral-200 peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-neutral-200 peer-data-te-input-state-active:-translate-y-[0.9rem] peer-data-te-input-state-active:scale-[0.8] dark:text-neutral-200 dark:placeholder-text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder-opacity-0"
-    id="exampleFormControlInput1"
-    placeholder="Email address"
-  />
-</div>
+                <label
+                  htmlFor="exampleFormControlInput1"
+                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-200 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-neutral-200 peer-data-te-input-state-active:-translate-y-[0.9rem] peer-data-te-input-state-active:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
+                >
+
+                </label>
+                <input
+                  type="text"
+                  className="peer block min-h-[auto] w-full rounded border-2 bg-transparent px-3 py-[0.32rem] leading-[1.6] text-neutral-200 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-50 placeholder:text-neutral-200 peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-neutral-200 peer-data-te-input-state-active:-translate-y-[0.9rem] peer-data-te-input-state-active:scale-[0.8] dark:text-neutral-200 dark:placeholder-text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder-opacity-0"
+                  id="exampleFormControlInput1"
+                  placeholder="Email address"
+                />
+              </div>
 
 
               <div className="mb-6 md:mr-auto">
@@ -82,7 +82,7 @@ const Footer = () => {
 
         <div className="mb-6">
           <p>
-          Providing Prompt and Compassionate Ambulance Services When Every Minute Counts. <br/> Your Health is Our Priority.
+            Providing Prompt and Compassionate Ambulance Services When Every Minute Counts. <br /> Your Health is Our Priority.
           </p>
         </div>
 
