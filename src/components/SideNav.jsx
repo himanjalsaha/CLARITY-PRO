@@ -7,7 +7,7 @@ import { GoGoal } from "react-icons/go";
 import { BsPersonWorkspace } from "react-icons/bs";
 const SideNav = () => {
   return (
-    <div  className=' flex-[0.15] bg-black h-screen'>
+    <div  className=' flex-[0.15] w-52 p-2  bg-black h-screen'>
         <div className='my task'>
             <ul className=' text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2 '>
                 <li className='hover:bg-slate-600 rounded-lg w-full p-2 flex flex-row'><MdHomeFilled className='m-1'/>Home</li>
