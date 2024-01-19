@@ -4,6 +4,7 @@ import LandingPage from './screens/LandingPage';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './screens/Home';
+import Tasks from './screens/Tasks';
 function App() {
   
 
@@ -12,7 +13,7 @@ function App() {
     <div>
     <BrowserRouter>
       <Routes>
-      <Route index element={<Home />} />
+      <Route index element={<Tasks />} />
         <Route path="/land" element={<LandingPage />}>
         
          
