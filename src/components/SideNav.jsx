@@ -26,8 +26,8 @@ const SideNav = () => {
       </div>
 
     <div className='my task'>
-        <div className=' text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2 '>
-            <div className='hover:bg-[#fa9b25] rounded-lg w-full p-2 items-center  flex flex-row'><MdHomeFilled className='m-1 text-2xl w-5 h-5 text-white absolute '/><text className={`${!open && "scale-0"} duration-300 mx-6`} ><Link to='/'>Home</Link></text></div>
+        <div className=' text-gray-200 text-lg flex  items-center flex-col m-2 p-2 '>
+            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 items-center  flex flex-row'><MdHomeFilled className='m-1 text-2xl w-5 h-5 text-white absolute '/><text className={`${!open && "scale-0"} duration-300 mx-6`} ><Link to='/'>Home</Link></text></li>
            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><FaTasks className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-6 block`} > <Link to='/tasks'>Tasks</Link></text></li>
             <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><PiChatsTeardropLight className='m-1 absolute'/> <text className={`${!open && "scale-0"} duration-300 mx-6`}>Chats</text></li>
 
