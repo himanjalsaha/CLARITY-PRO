@@ -14,7 +14,7 @@ const SideNav = () => {
     const [open , setopen] = useState(true)
 
   return (
-    <div  className={` w-80 border-r-white border-r-2  bg-black  h-screen ${open? "w-80" : "w-20"} duration-300  relative `}>
+    <div  className={`  border-r-white border-r-2  bg-black  h-screen ${open? "w-80" : "w-20"} duration-300  relative `}>
 
          <div className='flex flex-row items-center justify-between text-white m-5  '>
             <div className='logo flex flex-row items-center'>
@@ -22,14 +22,14 @@ const SideNav = () => {
       <text className={` font-extrabold mx-4 font-sans text-2xl ${!open && "scale-0"} duration-300`}>ClarityPro</text>
             </div>
       
-           <button onClick={()=>setopen(!open)}><FaAngleRight className={`w-6 h-6 absolute ${open && "rotate-180"} bg-[#fa9b25] rounded-full w-12 h-12 p-2 -right-5 top-14 `}/></button>
+           <button onClick={()=>setopen(!open)}><FaAngleRight className={`w-12 h-12 absolute ${open && "rotate-180"} bg-[#fa9b25] rounded-full   -right-6 top-12 `}/></button>
       </div>
 
     <div className='my task'>
         <div className=' text-gray-200 text-lg flex  items-center flex-col m-2 p-2 '>
-            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 items-center  flex flex-row'><MdHomeFilled className='m-1 text-2xl w-5 h-5 text-white absolute '/><text className={`${!open && "scale-0"} duration-300 mx-6`} ><Link to='/'>Home</Link></text></li>
-           <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><FaTasks className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-6 block`} > <Link to='/tasks'>Tasks</Link></text></li>
-            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><PiChatsTeardropLight className='m-1 absolute'/> <text className={`${!open && "scale-0"} duration-300 mx-6`}>Chats</text></li>
+            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 items-center  flex flex-row'><MdHomeFilled className='m-1 text-2xl w-5 h-5 text-white absolute '/><text className={`${!open && "scale-0"} duration-300 mx-7`} ><Link to='/'>Home</Link></text></li>
+           <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><FaTasks className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7 block`} > <Link to='/tasks'>Tasks</Link></text></li>
+            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><PiChatsTeardropLight className='m-1 absolute'/> <text className={`${!open && "scale-0"} duration-300 mx-7`}>Chats</text></li>
 
         </div>
 
@@ -39,8 +39,8 @@ const SideNav = () => {
     <div className='insights'>
         <ul className=' text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2 '>
         <li className={` rounded-lg w-full p-2 flex flex-row ${!open && "scale-0"} duration-300  font-bold`}>Insights</li>
-            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><IoAnalytics className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-6`}>Analytics</text></li>
-            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><GoGoal className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-6`}>Goals</text></li>
+            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><IoAnalytics className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>Analytics</text></li>
+            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><GoGoal className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>Goals</text></li>
 
         </ul>
         <hr/>
@@ -48,7 +48,7 @@ const SideNav = () => {
     <div className='Teams'>
         <ul className=' text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2 '>
         <li className={` rounded-lg w-full p-2 flex flex-row ${!open && "scale-0"} duration-300  font-bold`}>Teams</li>
-            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><BsPersonWorkspace className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-6`}>My Workspace</text></li>
+            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><BsPersonWorkspace className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>My Workspace</text></li>
 
         </ul>
     </div>
@@ -56,8 +56,8 @@ const SideNav = () => {
     <div className='additional'>
         <ul className=' text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2 '>
        
-            <li className='hover:bg-[#fa9b25]  items-center rounded-lg w-full p-2 flex flex-row'><BiCog  className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-6`}>settings</text></li>
-            <li className='hover:bg-[#fa9b25]  items-center rounded-lg w-full p-2 flex flex-row'><BiHelpCircle  className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-6`}>Help</text></li>
+            <li className='hover:bg-[#fa9b25]  items-center rounded-lg w-full p-2 flex flex-row'><BiCog  className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>settings</text></li>
+            <li className='hover:bg-[#fa9b25]  items-center rounded-lg w-full p-2 flex flex-row'><BiHelpCircle  className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>Help</text></li>
 
 
         </ul>
