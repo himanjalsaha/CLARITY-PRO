@@ -4,13 +4,13 @@ import SideNav from '../components/SideNav'
 import Taskscomponent from '../components/Taskscomponent'
 const Tasks = () => {
   return (
-    <div >
-        <TopNav/>
-         <div className=' flex flex-row'>
-        <SideNav/>
-        <Taskscomponent/>
-    </div>
-    </div>
+    <div className='flex-[0.85] overflow-auto ' >
+    <div className=' flex flex-row'>
+   <SideNav/>
+   <Taskscomponent/>
+   {/* {put homescreen here} */}
+</div>
+</div>
   )
 }
 

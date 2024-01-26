@@ -1,9 +1,13 @@
 import React from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
+
 const TopNav = () => {
+ 
+
   return (
-    <div className=' bg-black p-4 border-b-2 items-center flex justify-between border-b-white text-white'>
-        <RxHamburgerMenu className='w-6 h-6'/>
+    <div className=' bg-black h-[74px]  p-5 border-b-2 items-center flex justify-between border-b-white text-white'>
+        {/* <button><RxHamburgerMenu className='w-6 h-6'/></button> */}
+
         <div className="searchbar flex justify-center items-center">
             <input type="search" placeholder='Search' className=' p-2 mx-1 rounded-2xl w-80 placeholder:block bg-[#282828]' />
         </div>
