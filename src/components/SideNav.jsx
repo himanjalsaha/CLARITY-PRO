@@ -38,8 +38,8 @@ const SideNav = () => {
    
     <div className='insights'>
         <ul className=' text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2 '>
-        <li className={` rounded-lg w-full p-2 flex flex-row ${!open && "scale-0"} duration-300  font-bold`}>Insights</li>
-            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><IoAnalytics className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>Analytics</text></li>
+        {/* <li className={` rounded-lg w-full p-2 flex flex-row ${!open && "scale-0"} duration-300  font-bold`}>Insights</li> */}
+            <Link to='/Analytics' className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><IoAnalytics className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>Analytics</text></Link>
             <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><GoGoal className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>Goals</text></li>
 
         </ul>
@@ -47,8 +47,8 @@ const SideNav = () => {
     </div>
     <div className='Teams'>
         <ul className=' text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2 '>
-        <li className={` rounded-lg w-full p-2 flex flex-row ${!open && "scale-0"} duration-300  font-bold`}>Teams</li>
-            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><BsPersonWorkspace className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>My Workspace</text></li>
+        {/* <li className={` rounded-lg w-full p-2 flex flex-row ${!open && "scale-0"} duration-300  font-bold`}>Teams</li> */}
+            <li className='hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row'><BsPersonWorkspace className='m-1 absolute'/><text className={`${!open && "scale-0"} duration-300 mx-7`}>Workspace</text></li>
 
         </ul>
     </div>

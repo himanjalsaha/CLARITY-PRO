@@ -14,9 +14,7 @@ export function CustomizeNav({ isOpen, onClose }) {
 
 
     return (
-        <div
-            className={`fixed top-0 right-0 h-full w-64 bg-black text-white p-4 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform ease-in-out duration-300`}
-        >
+        <div className={`fixed top-0 right-0 h-full w-64 bg-black text-white p-4 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
             <div className="flex justify-between mt-2">
                 <p className="text-xl font-medium ">Customize Home</p>
                 <button className="text-white" >
