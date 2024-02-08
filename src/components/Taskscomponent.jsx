@@ -1,7 +1,6 @@
 // import React from 'react'
 import TopNav from './TopNav'
 import Boardview from './Boardview'
-import { Todo } from './Todo';
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
 // import Tab from '@mui/material/Tab';
@@ -37,7 +36,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ListView from './ListView';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -94,10 +92,10 @@ export default function Taskscomponent() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Boardview/>
+        <Boardview/> 
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <ListView/>
+        Item Two
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         Item Three

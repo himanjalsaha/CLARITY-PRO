@@ -20,7 +20,7 @@ const TodoBoard = ({id,tasks}) => {
 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
 <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
 </span>
-<text className='text-4xl font-thin '>todo</text>
+<text className='text-4xl font-thin '>Todo</text>
     </div>
     <BiDotsVerticalRounded className='w-6 h-6'/>
     </div>
