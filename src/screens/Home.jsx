@@ -1,19 +1,29 @@
-import React from 'react'
-import TopNav from '../components/TopNav'
-import SideNav from '../components/SideNav'
-import { HomeScreen } from '../components/HomeScreen'
-
+import React, { useState } from 'react';
+import TopNav from '../components/TopNav';
+import SideNav from '../components/SideNav';
+import { HomeScreen } from '../components/HomeScreen';
+import Taskscomponent from '../components/Taskscomponent';
+import Analytics from '../components/Analytics'
 const Home = () => {
-  return (
-    <div className='  ' >
-         <div className=' flex flex-row'>
-        <SideNav/>
-        <HomeScreen className=" h-[calc(100vh-70px)]"/>
-        {/* {put homescreen here} */}
-    </div>
-    </div>
-   
-  )
-}
+  const [selectedComponent, setSelectedComponent] = useState('HomeScreen');
 
-export default Home
+  const handleComponentChange = (componentName) => {
+    setSelectedComponent(componentName);
+  };
+
+  // Define components to be rendered based on selection
+  const componentsMap = {
+    HomeScreen: <HomeScreen className="h-[calc(100vh-70px)]" />,
+    TasksComponent: <Taskscomponent />,
+    Analytics:<Analytics/>
+  };
+
+  return (
+    <div className="flex flex-row">
+      <SideNav onComponentChange={handleComponentChange} />
+      {componentsMap[selectedComponent]}
+    </div>
+  );
+};
+
+export default Home;

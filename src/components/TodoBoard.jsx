@@ -2,15 +2,10 @@ import React from 'react'
 import { BiDotsVerticalRounded ,BiFlag } from 'react-icons/bi'
 import { BiPlus } from 'react-icons/bi'
 import { useSortable } from '@dnd-kit/sortable'
-import {
-  SortableContext,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
 
-import {CSS} from '@dnd-kit/utilities'
+
 const TodoBoard = ({id,tasks}) => {
-    const {attributes , listeners  ,setNodeRef , transform  , transition} = useSortable({id})
-    const style = {transition,transform:CSS.Transform.toString(transform)}
+   
  
   return (
     <div className='todo bg-neutral-600 rounded-lg  m-2 p-2 w-full  '>    
@@ -27,7 +22,7 @@ const TodoBoard = ({id,tasks}) => {
     <hr />
     {tasks.map((task)=>{
       return(
-        <div key={task.id} ref={setNodeRef} {...attributes} {...listeners} style={style} className=' bg-neutral-500 p-4 rounded-lg flex flex-col my-4 w-full'>
+        <div draggable key={task.id}  className=' bg-neutral-500 p-4 rounded-lg flex flex-col my-4 w-full'>
         <text className='font-sans font-bold text-2xl'>{task.title_task}</text>
         <text>{task.description} </text>
         <img src="https://cdn.dribbble.com/userupload/3941095/file/original-2d523f455fc5ec3abe5727100749d440.png?resize=1024x768" alt="" className=' rounded-lg' />
