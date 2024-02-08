@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './screens/Home';
 import Tasks from './screens/Tasks';
+import Analytics_Screen from './screens/Analytics_Screen';
 function App() {
   
 
@@ -15,11 +16,15 @@ function App() {
       <Routes>
       <Route index element={<Home/>} />
       <Route path="/tasks" element={<Tasks/>}/>
+        <Route path="/land" element={<LandingPage />}/>
+        <Route path="/Analytics" element={<Analytics_Screen />}/>
 
-        <Route path="/land" element={<LandingPage />}>
+
+
+        
         
          
-        </Route>
+        
       </Routes>
     </BrowserRouter>
     </div>
