@@ -1,7 +1,7 @@
 // import React from 'react'
 import TopNav from './TopNav'
-import Boardview from './Boardview'
 import ListView from './ListView';
+import Kanban from './Kanban';
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
 // import Tab from '@mui/material/Tab';
@@ -93,7 +93,7 @@ export default function Taskscomponent() {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Boardview/> 
+        <Kanban/> 
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
        <ListView/>

@@ -13,7 +13,7 @@ const Home = () => {
 
   // Define components to be rendered based on selection
   const componentsMap = {
-    HomeScreen: <HomeScreen className="h-[calc(100vh-70px)]" />,
+    HomeScreen: <HomeScreen  />,
     TasksComponent: <Taskscomponent />,
     Analytics:<Analytics/>
   };
