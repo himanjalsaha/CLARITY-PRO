@@ -2,7 +2,7 @@ import React from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import Task from './Task';
 
-const Column = ({ column, tasks, index }) => {
+const Column = ({ column, tasks, index ,onColumnDragEnd }) => {
   return (
     <Draggable draggableId={column.id} index={index}>
       {(provided) => (
@@ -19,7 +19,7 @@ const Column = ({ column, tasks, index }) => {
               <div
                 {...provided.droppableProps}
                 ref={provided.innerRef}
-                className={`p-2 ${snapshot.isDraggingOver ? 'bg-neutral-700 h-[95%]' : 'bg-neutral-800 h-[95%]'}`}
+                className={`p-2 ${snapshot.isDraggingOver ? 'bg-neutral-700 h-[95%] overflow-auto' : 'bg-neutral-800 h-[95%] overflow-auto'}`}
               >
                 {tasks.map((task, index) => (
                   <Task key={task.id} task={task} index={index} />
