@@ -4,7 +4,7 @@ const TopNav = () => {
  
 
   return (
-    <div className=' bg-black h-[74px]  p-5 border-b-2 items-center flex justify-between border-b-white text-white'>
+    <div className=' bg-black h-[74px]   p-5 border-b-2 items-center flex justify-between border-b-white text-white'>
 
         <div className="searchbar flex  items-center relative">
           <FaSearch className=' absolute text-gray-400 left-4'/>

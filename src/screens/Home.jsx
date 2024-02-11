@@ -4,6 +4,7 @@ import SideNav from '../components/SideNav';
 import { HomeScreen } from '../components/HomeScreen';
 import Taskscomponent from '../components/Taskscomponent';
 import Analytics from '../components/Analytics'
+import Settings from '../components/Settings';
 const Home = () => {
   const [selectedComponent, setSelectedComponent] = useState('HomeScreen');
 
@@ -15,7 +16,8 @@ const Home = () => {
   const componentsMap = {
     HomeScreen: <HomeScreen  />,
     TasksComponent: <Taskscomponent />,
-    Analytics:<Analytics/>
+    Analytics:<Analytics/>,
+    Settings:<Settings/>
   };
 
   return (

@@ -72,7 +72,7 @@ const SideNav = ({ onComponentChange }) => {
       <hr />
       <div className="additional">
         <ul className="text-gray-200 text-lg flex justify-center items-center flex-col m-2 p-2">
-          <button className="hover:bg-[#fa9b25] items-center rounded-lg w-full p-2 flex flex-row">
+          <button onClick={() => handleComponentClick('Settings')} className="hover:bg-[#fa9b25] items-center rounded-lg w-full p-2 flex flex-row">
             <BiCog className="m-1 absolute" />
             <text className={`${!open ? 'scale-0' : ''} duration-300 mx-7`}>Settings</text>
           </button>
