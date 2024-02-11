@@ -14,15 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
       <Route index element={<Home/>} />
-    
         <Route path="/land" element={<LandingPage />}/>
-
-
-
-        
-        
-         
-        
       </Routes>
     </BrowserRouter>
     </div>
