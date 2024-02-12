@@ -6,7 +6,6 @@ import { InReview } from './InReview'
 const ListView = () => {
     return (
         <div>
-            <div>ListView</div>
             <Todo/>
             <InDesign/>
             <InReview/>
