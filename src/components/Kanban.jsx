@@ -4,7 +4,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Column from './Column';
 
 const initialColumns = [
-  { id: 'todo', title: 'To Do', taskIds: ['task-1', 'task-2', 'task-3','task-4'] },
+  { id: 'todo', title: 'To Do', taskIds: ['task-1', 'task-2', 'task-3', 'task-4'] },
   { id: 'inProgress', title: 'In Progress', taskIds: [] },
   { id: 'done', title: 'Done', taskIds: [] },
   // Add more columns as needed
@@ -24,54 +24,54 @@ const Kanban = () => {
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
-  
+
     // If there's no destination or the task is dropped back to its original position, do nothing
     if (!destination || (destination.droppableId === source.droppableId && destination.index === source.index)) {
       return;
     }
 
-    
-  const updatedColumns_ = Array.from(columns);
-  const [removedColumn] = updatedColumns_.splice(source.index, 1); // Remove the dragged column
-  updatedColumns_.splice(destination.index, 0, removedColumn); // Insert the dragged column to its new position
 
-  setColumns(updatedColumns_);
-  
+    const updatedColumns_ = Array.from(columns);
+    const [removedColumn] = updatedColumns_.splice(source.index, 1); // Remove the dragged column
+    updatedColumns_.splice(destination.index, 0, removedColumn); // Insert the dragged column to its new position
+
+    setColumns(updatedColumns_);
+
     const startColumn = columns.find((column) => column.id === source.droppableId);
     const finishColumn = columns.find((column) => column.id === destination.droppableId);
-  
+
     const updatedColumns = Array.from(columns);
-  
+
     // Remove the task from the start column
     const startTaskIds = Array.from(startColumn.taskIds);
     startTaskIds.splice(source.index, 1);
     updatedColumns.find((column) => column.id === source.droppableId).taskIds = startTaskIds;
-  
+
     // Add the task to the finish column
     const finishTaskIds = Array.from(finishColumn.taskIds);
     finishTaskIds.splice(destination.index, 0, draggableId);
     updatedColumns.find((column) => column.id === destination.droppableId).taskIds = finishTaskIds;
-  
+
     setColumns(updatedColumns);
   };
 
-  const onColumnDragEnd = (result) => {
-  const { destination, source, draggableId } = result;
+  //   const onColumnDragEnd = (result) => {
+  //   const { destination, source, draggableId } = result;
 
-  // If there's no destination or the column is dropped back to its original position, do nothing
-  if (!destination || (destination.index === source.index)) {
-    return;
-  }
+  //   // If there's no destination or the column is dropped back to its original position, do nothing
+  //   if (!destination || (destination.index === source.index)) {
+  //     return;
+  //   }
 
-  const updatedColumns = Array.from(columns);
-  const [removedColumn] = updatedColumns.splice(source.index, 1); // Remove the dragged column
-  updatedColumns.splice(destination.index, 0, removedColumn); // Insert the dragged column to its new position
+  //   const updatedColumns = Array.from(columns);
+  //   const [removedColumn] = updatedColumns.splice(source.index, 1); // Remove the dragged column
+  //   updatedColumns.splice(destination.index, 0, removedColumn); // Insert the dragged column to its new position
 
-  setColumns(updatedColumns);
-};
+  //   setColumns(updatedColumns);
+  // };
 
-  
-  
+
+
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
