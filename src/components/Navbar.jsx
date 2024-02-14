@@ -2,6 +2,7 @@ import React from 'react'
 import { GiAbstract118 } from "react-icons/gi";
 import { FaChevronDown } from "react-icons/fa";
 import { LiaSignInAltSolid } from "react-icons/lia";
+import { useNavigate } from 'react-router-dom';
 
 
 // COLOR PALETTE
@@ -18,6 +19,12 @@ import { LiaSignInAltSolid } from "react-icons/lia";
   
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  function handleSignIn(){
+    navigate('/signin')
+
+  }
   return (
     <nav  className='bg-black rounded-3xl w-[98%]   p-3 text-white flex flex-row justify-around    '>
       <div className='flex flex-row items-center'>
@@ -33,7 +40,7 @@ const Navbar = () => {
 
       <div className='flex items-center'>
       <ul className='flex flex-row items-center gap-4 font-semibold mx-5'>
-          <li className='flex flex-row items-center hover:overline'>Sign in <LiaSignInAltSolid   className='mx-2 w-6 h-6'/></li>
+          <li className='flex flex-row items-center cursor-pointer p-2 hover:bg-orange-200 hover:rounded-lg hover:p-2 hover:border-2 hover:border-orange-600 hover:bg-opacity-50' onClick={handleSignIn}>Sign in <LiaSignInAltSolid   className='mx-2 w-6 h-6'/></li>
           <li className='flex flex-row items-center rounded-md bg-slate-50 text-black p-2 justify-center'><text>Quick Start</text> <FaChevronDown  className='mx-2'/></li>
         </ul>
       </div>

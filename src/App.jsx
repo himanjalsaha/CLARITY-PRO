@@ -4,6 +4,7 @@ import LandingPage from './screens/LandingPage';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './screens/Home';
+import { UserCredentials } from './screens/UserCredentials';
 
 function App() {
   
@@ -16,7 +17,7 @@ function App() {
       <Route index element={<Home/>} />
     
         <Route path="/land" element={<LandingPage />}/>
-
+        <Route path="/signin" element={<UserCredentials/>} />
 
 
         
