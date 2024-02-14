@@ -2,6 +2,7 @@
 import TopNav from './TopNav'
 import ListView from './ListView';
 import Kanban from './Kanban';
+import Timeline from './Timeline';
 // import PropTypes from 'prop-types';
 // import Tabs from '@mui/material/Tabs';
 // import Tab from '@mui/material/Tab';
@@ -99,7 +100,7 @@ export default function Taskscomponent() {
        <ListView/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Item Three
+        <Timeline/>
       </CustomTabPanel>
     </Box>
        
