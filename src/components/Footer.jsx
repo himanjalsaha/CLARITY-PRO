@@ -10,49 +10,49 @@ export function Footer() {
             </div>
           <div className="flex  justify-center gap-40 my-2 text-white">
               <div className="flex flex-col gap-2 text-xs">
-                  <span className=" hover:text-orange-600 cursor-pointer">Countries</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Regions</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Cities</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Districts</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Airports</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Hotels</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Places of interest</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Countries</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Regions</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Cities</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Districts</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Airports</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Hotels</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Places of interest</span>
               </div>
               <div className="flex flex-col gap-2 text-xs">
-                  <span className=" hover:text-orange-600 cursor-pointer">Countries</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Regions</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Cities</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Districts</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Airports</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Hotels</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Places of interest</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Countries</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Regions</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Cities</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Districts</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Airports</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Hotels</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Places of interest</span>
               </div>
               <div className="flex flex-col gap-2 text-xs">
-                  <span className=" hover:text-orange-600 cursor-pointer">Countries</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Regions</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Cities</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Districts</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Airports</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Hotels</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Places of interest</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Countries</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Regions</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Cities</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Districts</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Airports</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Hotels</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Places of interest</span>
               </div>
               <div className="flex flex-col gap-2 text-xs">
-                  <span className=" hover:text-orange-600 cursor-pointer">Countries</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Regions</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Cities</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Districts</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Airports</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Hotels</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Places of interest</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Countries</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Regions</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Cities</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Districts</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Airports</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Hotels</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Places of interest</span>
               </div>
               <div className="flex flex-col gap-2 text-xs">
-                  <span className=" hover:text-orange-600 cursor-pointer">Countries</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Regions</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Cities</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Districts</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Airports</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Hotels</span>
-                  <span className=" hover:text-orange-600 cursor-pointer">Places of interest</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Countries</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Regions</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Cities</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Districts</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Airports</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Hotels</span>
+                  <span className=" hover:text-orange-400 cursor-pointer">Places of interest</span>
               </div>
           </div>
          
