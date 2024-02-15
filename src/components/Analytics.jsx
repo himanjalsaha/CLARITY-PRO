@@ -16,7 +16,6 @@ const initialTasks = [
 
 const Analytics = () => {
   const [showAllTasks, setShowAllTasks] = useState(false);
-  const [showAllDays, setShowAllDays] = useState(false);
   const [shownTasks, setShownTasks] = useState(initialTasks.slice(0, 3)); // Changed to 3 tasks initially
 
   const toggleDayDetails = (index) => {
