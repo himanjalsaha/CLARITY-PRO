@@ -12,7 +12,7 @@ export default function BasicLineChart() {
   const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   return (
-    <div className='bg-neutral-900 m-2 rounded-lg'>
+    <div className='bg-white m-2 rounded-lg'>
       <LineChart
         xAxis={[
           {
@@ -27,7 +27,7 @@ export default function BasicLineChart() {
             showMark: ({ index }) => index % 2 === 0,
           },
         ]}
-        width={900}
+        width={600}
         height={300}
         axisStyles={{
           axis: { stroke: '#fff' }, // Make axis lines white
