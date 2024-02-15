@@ -16,7 +16,7 @@ const Header = () => {
  
         
         <div className=' flex-[0.49] flex items-center justify-center'>
-          <img src={blob} alt=""  className=' absolute'/>
+          <img src={blob} alt=""  className=' absolute w-[40%] '/>
         <img src={img} alt="" className=' relative rounded-2xl  h-[56%] w-[56%]'  />
         </div>
         <div className=' flex-[0.6] flex justify-center items-center flex-col'>
