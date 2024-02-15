@@ -16,10 +16,10 @@ export function LogIn() {
                 </div>
                 <div className='flex flex-col items-center justify-center'>
                     <div className="py-2 px-12">
-                        <input type="text" placeholder="Enter your Email" className="w-96 rounded-lg  border-none p-2" />
+                        <input type="text" placeholder="Enter your Email" className="w-96 outline-orange-400 rounded-lg  border-none p-2" />
                     </div>
                     <div className="py-2 px-12">
-                        <input type="text" placeholder="Enter your password" className="w-96 rounded-lg  border-none p-2" />
+                        <input type="text" placeholder="Enter your password" className="w-96 outline-orange-400 rounded-lg  border-none p-2" />
                     </div>
                 </div>
                 <div className="flex justify-between mx-8">
