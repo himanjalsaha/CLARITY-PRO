@@ -1,10 +1,40 @@
 import React, { useState } from 'react';
 import img from '../assets/clarityprotemp.jpg';
 import gif from '../assets/program.gif';
-
-
+import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {auth} from '../Firebase/firebase'
 export function LogIn() {
     const [showSignUp, setShowSignUp] = useState(false);
+    const [err , setErr] = useState(false);
+    const HandleSignin= async (e)=>{
+        e.preventDefault()
+        const email = e.target[0].value
+        const password = e.target[1].value
+        console.log(email,password);
+
+    }
+
+    const handleSignup = async (e) =>{
+        e.preventDefault()
+        const username = e.target[0].value
+        const email = e.target[1].value
+        const password = e.target[2].value
+
+
+       try{
+        createUserWithEmailAndPassword(auth , email , password)
+        
+       }
+       catch(err){
+        setErr(true)
+        console.log(err);
+
+       }
+
+        
+
+        
+    }
 
     return (
         <div className='flex overflow-hidden gap-60 items-center'>
@@ -14,14 +44,16 @@ export function LogIn() {
                 <div className="py-1 flex justify-center">
                     <span className="text-sm text-gray-400">New to Clarity Pro ? <span onClick={() => setShowSignUp(true)} className="cursor-pointer hover:text-orange-300 ">Create an Account</span></span>
                 </div>
-                <div className='flex flex-col items-center justify-center'>
-                    <div className="py-2 px-12">
-                        <input type="text" placeholder="Enter your Email" className="w-96 outline-orange-400 rounded-lg  border-none p-2" />
-                    </div>
-                    <div className="py-2 px-12">
-                        <input type="text" placeholder="Enter your password" className="w-96 outline-orange-400 rounded-lg  border-none p-2" />
-                    </div>
-                </div>
+                <form onSubmit={HandleSignin} className='flex flex-col items-center justify-center gap-2'>
+          
+                        <input type="text" placeholder="Enter your Email" className="w-96 outline-orange-400 rounded-lg text-black  border-none p-2" />
+                  
+               
+                        <input type="text" placeholder="Enter your password" className="w-96 outline-orange-400 rounded-lg text-black border-none p-2" />
+          
+                    <button type='submit' className="bg-orange-400 p-1  w-96 text-lg hover:bg-orange-600 rounded-lg ">Log In</button>
+
+                </form>
                 <div className="flex justify-between mx-8">
                     <div className="flex gap-2">
                         <input type="checkbox" name="" id="" className='accent-orange-400' />
@@ -30,9 +62,9 @@ export function LogIn() {
                     <div>
                         <a href="" className="hover:text-orange-300 text-sm text-gray-400">Forgot Password ? </a>
                     </div>
+
                 </div>
                 <div className="flex flex-col mx-10 my-4">
-                    <button className="bg-orange-400 p-1 text-lg hover:bg-orange-600 rounded-lg ">Log In</button>
                     <button className="mt-2 bg-orange-400 p-1 text-lg hover:bg-orange-600 rounded-lg ">Login With Google</button>
                 </div>
             </div>
@@ -43,23 +75,25 @@ export function LogIn() {
                 <div className="py-1 flex justify-center">
                     <span className="text-sm text-gray-400">Already have an account? <span onClick={() => setShowSignUp(false)} className="cursor-pointer hover:text-orange-300 ">Log In</span></span>
                 </div>
-                <div className='flex flex-col items-center justify-center'>
-                    <div className="py-2 px-12">
-                        <input type="text" placeholder="Enter your Email" className="w-96 rounded-lg  border-none p-2" />
-                    </div>
-                    <div className="py-2 px-12">
-                        <input type="text" placeholder="Enter your password" className="w-96 rounded-lg  border-none p-2" />
-                    </div>
-                </div>
-                <div className="flex justify-between mx-8">
-                    <div className="flex gap-2">
+                <form onSubmit={handleSignup} className='flex flex-col items-center justify-center gap-2'>
+                <input type="text" placeholder="Enter your Username" className="w-96 text-black rounded-lg  border-none p-2" />
+
+                  
+                        <input type="email" placeholder="Enter your Email" className="w-96 rounded-lg text-black border-none p-2" />
+                  
+                    
+                        <input type="password" placeholder="Enter your password" className="w-96 rounded-lg text-black  border-none p-2" />
+
+                        <div className="flex gap-2">
                         <input type="checkbox" name="" id="" className=' accent-orange-400' />
                         <h1>Agree to Terms</h1>
                     </div>
-                </div>
-                <div className="flex flex-col mx-10 my-4">
-                    <button className="bg-orange-400 p-1 text-lg hover:bg-orange-600 rounded-lg ">Sign Up</button>
-                </div>
+                  
+                    <button className="bg-orange-400 p-1 w-96 text-lg hover:bg-orange-600 rounded-lg ">Sign Up</button>
+
+                </form>
+             
+               
             </div>
 
             <div className={`absolute top-1/2 transform -translate-y-1/2 transition-transform ease-in-out duration-500 ${showSignUp ? 'translate-x-[100px]' : 'translate-x-[850px]'}`}>
