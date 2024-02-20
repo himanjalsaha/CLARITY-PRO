@@ -4,7 +4,9 @@ import gif from '../assets/program.gif';
 import {createUserWithEmailAndPassword  , signInWithEmailAndPassword , updateProfile } from 'firebase/auth'
 import {auth} from '../Firebase/firebase'
 import { UserCredentials } from '../screens/UserCredentials';
+import { useNavigate } from 'react-router-dom';
 export function LogIn() {
+    const navigate = useNavigate()
     const [showSignUp, setShowSignUp] = useState(false);
     const [err , setErr] = useState(false);
     const HandleSignin= async (e)=>{
@@ -17,7 +19,7 @@ export function LogIn() {
            const {user} =  await signInWithEmailAndPassword(auth, email, password);
             console.log(user);
             // Listen for authentication state changes
-          
+            navigate('/')
         } catch(error) {
             setErr(true);
             console.error('Signin error:', error.message);
@@ -37,6 +39,7 @@ export function LogIn() {
            await updateProfile(user , {displayName:username})
             console.log(user);
             // Listen for authentication state changes
+           navigate('/')
           
         } catch(error) {
             setErr(true);
