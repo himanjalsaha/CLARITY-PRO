@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import img from '../assets/clarityprotemp.jpg';
 import gif from '../assets/program.gif';
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {createUserWithEmailAndPassword  , signInWithEmailAndPassword , updateProfile } from 'firebase/auth'
 import {auth} from '../Firebase/firebase'
+import { UserCredentials } from '../screens/UserCredentials';
 export function LogIn() {
     const [showSignUp, setShowSignUp] = useState(false);
     const [err , setErr] = useState(false);
@@ -11,6 +12,16 @@ export function LogIn() {
         const email = e.target[0].value
         const password = e.target[1].value
         console.log(email,password);
+        try {
+            // Create user with email and password
+           const {user} =  await signInWithEmailAndPassword(auth, email, password);
+            console.log(user);
+            // Listen for authentication state changes
+          
+        } catch(error) {
+            setErr(true);
+            console.error('Signin error:', error.message);
+        }
 
     }
 
@@ -20,20 +31,17 @@ export function LogIn() {
         const email = e.target[1].value
         const password = e.target[2].value
 
-
-       try{
-        createUserWithEmailAndPassword(auth , email , password)
-        
-       }
-       catch(err){
-        setErr(true)
-        console.log(err);
-
-       }
-
-        
-
-        
+        try {
+            // Create user with email and password
+           const {user} =  await createUserWithEmailAndPassword(auth, email, password);
+           await updateProfile(user , {displayName:username})
+            console.log(user);
+            // Listen for authentication state changes
+          
+        } catch(error) {
+            setErr(true);
+            console.error('Signup error:', error.message);
+        }
     }
 
     return (
@@ -90,7 +98,7 @@ export function LogIn() {
                     </div>
                   
                     <button className="bg-orange-400 p-1 w-96 text-lg hover:bg-orange-600 rounded-lg ">Sign Up</button>
-
+                    {err && "something went wrong"}
                 </form>
              
                
