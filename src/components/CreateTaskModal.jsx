@@ -26,10 +26,10 @@ export default function CreateTaskModal({ onCreateTodo, onClose }) {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 text-orange-700">
             <div className="bg-orange-200 p-20 rounded-md shadow-md">
                 <span
-                    className="absolute top-20 right-96 cursor-pointer text-white"
+                    className="absolute top-24 right-[38%] cursor-pointer text-white"
                     onClick={onClose}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
 
