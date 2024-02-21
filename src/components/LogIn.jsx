@@ -5,6 +5,7 @@ import {createUserWithEmailAndPassword  , signInWithEmailAndPassword , updatePro
 import {auth} from '../Firebase/firebase'
 import { UserCredentials } from '../screens/UserCredentials';
 import { useNavigate } from 'react-router-dom';
+import SigninModal from './SigninModal';
 export function LogIn() {
     const navigate = useNavigate()
     const [showSignUp, setShowSignUp] = useState(false);
@@ -41,14 +42,14 @@ export function LogIn() {
             // Listen for authentication state changes
            navigate('/')
           
-        } catch(error) {
+        } catch(err) {
             setErr(true);
-            console.error('Signup error:', error.message);
+            console.error('Signup error:', err);
         }
     }
 
     return (
-        <div className='flex overflow-hidden gap-60 items-center'>
+        <div className='grid grid-cols-2 overflow-hidden gap-1 justify-center items-center'>
             {/* Login Form */}
             <div className={`border-1 my-20 p-10 border-orange-400 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#f90,0_0_15px_#f90,0_0_30px_#f90] justify-center w-[600px] rounded-lg mx-10 transition-transform ease-in-out duration-500 ${showSignUp ? ' -translate-x-[200%]' : 'translate-x-0'}`}>
                 <h1 className="flex justify-center text-2xl font-semibold ">Login</h1>
@@ -71,7 +72,7 @@ export function LogIn() {
                         <h1>Remember Me</h1>
                     </div>
                     <div>
-                        <a href="" className="hover:text-orange-300 text-sm text-gray-400">Forgot Password ? </a>
+                        <a  className="hover:text-orange-300 text-sm text-gray-400"><SigninModal/> </a>
                     </div>
 
                 </div>
