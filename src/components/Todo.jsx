@@ -43,6 +43,15 @@ export function Todo() {
     };
 
 
+    let globalId = 3;
+    function handleCreateTodo(newTodo){
+        newTodo.id = globalId.toString();
+        globalId++;
+        setTodo((prevTodo) => [...prevTodo , newTodo]);
+        console.log(newTodo);
+        console.log(newTodo.id);
+    }
+
 
     return (
 
@@ -72,23 +81,24 @@ export function Todo() {
                 <span>People</span>
             </div> */}
             <div >
-                {/* {todo.map((task, index) => (
+               
+
+              <div className='flex flex-col gap-4'>
+              {/* <ListCard title={todo[0].title} dueDate={todo[0].dueDate} daysLeft={numberOfDaysLeft(parseDate(todo[0].dueDate))} />
+                <ListCard title={todo[1].title} dueDate={todo[1].dueDate} daysLeft={numberOfDaysLeft(parseDate(todo[1].dueDate))} /> */}
+
+                 {todo.map((task, index) => (
 
                     <div >
                         <ListCard
                             key={task.id}
                             title={task.title}
                             dueDate={task.dueDate}
-                            startDate={task.startDate}
-                            priority={task.priority}
+                            daysLeft={numberOfDaysLeft(parseDate(task.dueDate))}
                         />
                     </div>
-                ))} */}
+                ))}
 
-
-              <div className='flex flex-col gap-4'>
-              <ListCard title={todo[0].title} dueDate={todo[0].dueDate} daysLeft={numberOfDaysLeft(parseDate(todo[0].dueDate))} />
-                <ListCard title={todo[1].title} dueDate={todo[1].dueDate} daysLeft={numberOfDaysLeft(parseDate(todo[1].dueDate))} />
               </div>
 
 
