@@ -56,7 +56,7 @@ export function HomeScreen() {
             < div className="   h-[calc(100vh-74px)] overflow-auto" >
                 <div className="text-white text-center my-4   ">
                     <p className="font-normal text-2xl">{getCurrentDate()}</p>
-                    <p className="font-medium text-4xl pt-2">{greetUser()},{currentuser.displayName.toUpperCase()  } </p>
+                    <p className="font-medium text-4xl pt-2">{greetUser() }, {currentuser && currentuser.displayName} </p>
 
                     <div className="flex flex-wrap gap-10 flex-cols my-4 justify-center">
                         <div className="bg-[#404040] p-4 rounded-lg h-96 shadow-lg mt-4 w-[40%]  hover:border-2 hover:border-white hover:shadow-2xl">

@@ -7,6 +7,7 @@ const initialColumns = [
   { id: 'todo', title: 'To Do', taskIds: ['task-1', 'task-2', 'task-3', 'task-4'] },
   { id: 'inProgress', title: 'In Progress', taskIds: [] },
   { id: 'done', title: 'Done', taskIds: [] },
+  
   // Add more columns as needed
 ];
 

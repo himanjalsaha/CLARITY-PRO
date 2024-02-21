@@ -64,6 +64,7 @@ export function LogIn() {
                         <input type="text" placeholder="Enter your password" className="w-96 outline-orange-400 rounded-lg text-black border-none p-2" />
           
                     <button type='submit' className="bg-orange-400 p-1  w-96 text-lg hover:bg-orange-600 rounded-lg ">Log In</button>
+                    {err && "something went wrong"}
 
                 </form>
                 <div className="flex justify-between mx-8">

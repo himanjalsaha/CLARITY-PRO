@@ -5,6 +5,7 @@ import { HomeScreen } from '../components/HomeScreen';
 import Taskscomponent from '../components/Taskscomponent';
 import Analytics from '../components/Analytics'
 import Settings from '../components/Settings';
+import Chat from '../components/Chat';
 const Home = () => {
   const [selectedComponent, setSelectedComponent] = useState('HomeScreen');
 
@@ -17,7 +18,8 @@ const Home = () => {
     HomeScreen: <HomeScreen  />,
     TasksComponent: <Taskscomponent />,
     Analytics:<Analytics/>,
-    Settings:<Settings/>
+    Settings:<Settings/>,
+    Chat:<Chat/>
   };
 
   return (

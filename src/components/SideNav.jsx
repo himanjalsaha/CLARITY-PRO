@@ -40,7 +40,7 @@ const SideNav = ({ onComponentChange }) => {
             <FaTasks className="m-1 absolute" />
             <text className={`${!open ? 'scale-0' : ''} duration-300 mx-7 block`}>Tasks</text>
           </button>
-          <button className="hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row">
+          <button onClick={() => handleComponentClick('Chat')} className="hover:bg-[#fa9b25] rounded-lg w-full p-2 flex flex-row">
             <PiChatsTeardropLight className="m-1 absolute" />
             <text className={`${!open ? 'scale-0' : ''} duration-300 mx-7`}>Chats</text>
           </button>
