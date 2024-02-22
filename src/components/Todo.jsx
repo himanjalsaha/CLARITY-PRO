@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { ListCard } from "./ListCard";
 import CreateTaskModal from "./CreateTaskModal";
+import { SubTasksModal } from './SubTasksModal';
 
 export function Todo() {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -9,6 +9,12 @@ export function Todo() {
         { id: '1', title: "DBMS presentation", dueDate: "25-02-24" },
         { id: '2', title: "create ui", dueDate: "26-02-24" },
     ]);
+
+    const [showSubtasks, setShowSubTasks] = useState(false);
+
+    function handleSubTasks() {
+        setShowSubTasks(!showSubtasks);
+    }
 
     function numberOfDaysLeft(dueDate) {
         const today = new Date();
@@ -44,10 +50,10 @@ export function Todo() {
 
 
     let globalId = 3;
-    function handleCreateTodo(newTodo){
+    function handleCreateTodo(newTodo) {
         newTodo.id = globalId.toString();
         globalId++;
-        setTodo((prevTodo) => [...prevTodo , newTodo]);
+        setTodo((prevTodo) => [...prevTodo, newTodo]);
         console.log(newTodo);
         console.log(newTodo.id);
     }
@@ -81,29 +87,32 @@ export function Todo() {
                 <span>People</span>
             </div> */}
             <div >
-               
 
-              <div className='flex flex-col gap-4'>
-              {/* <ListCard title={todo[0].title} dueDate={todo[0].dueDate} daysLeft={numberOfDaysLeft(parseDate(todo[0].dueDate))} />
+
+                <div className='flex flex-col gap-4'>
+                    {/* <ListCard title={todo[0].title} dueDate={todo[0].dueDate} daysLeft={numberOfDaysLeft(parseDate(todo[0].dueDate))} />
                 <ListCard title={todo[1].title} dueDate={todo[1].dueDate} daysLeft={numberOfDaysLeft(parseDate(todo[1].dueDate))} /> */}
 
-                 {todo.map((task, index) => (
+                    {todo.map((task) => (
 
-                    <div >
-                        <ListCard
-                            key={task.id}
-                            title={task.title}
-                            dueDate={task.dueDate}
-                            daysLeft={numberOfDaysLeft(parseDate(task.dueDate))}
-                        />
-                    </div>
-                ))}
+                        <div >
+                            <ListCard
+                                key={task.id}
+                                title={task.title}
+                                dueDate={task.dueDate}
+                                handleSubTasks={handleSubTasks}
+                                daysLeft={numberOfDaysLeft(parseDate(task.dueDate))}
+                            />
+                        </div>
+                    ))}
 
-              </div>
+                </div>
 
 
 
-
+                <div className='absolute w-1/2 right-1/4 bottom-0 z-10'>
+                    {showSubtasks && <SubTasksModal title={todo[0].title} dueDate={todo[0].dueDate} priority={"normal"} setShowSubTasks={setShowSubTasks} showSubtasks={showSubtasks} />}
+                </div>
 
 
                 {isModalOpen && (

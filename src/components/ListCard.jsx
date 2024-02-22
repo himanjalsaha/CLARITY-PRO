@@ -1,10 +1,13 @@
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import sub from '../assets/subtask.png'
+import { useState } from 'react';
 
+export function ListCard({ title, team, dueDate, daysLeft,handleSubTasks }) {
+    
 
-export function ListCard({ title, team, dueDate, daysLeft }) {
     return (
-        <div>
+        <div className='relative'>
             {/* <div className="m-1 p-1 flex flex-row gap-40 text-gray-300 border-b-[0.5px] border-gray-400"> */}
             <div className="flex   border-2 p-3 gap-4 w-3/5 rounded-xl bg-black">
                 <div className="flex justify-between gap-20">
@@ -52,12 +55,14 @@ export function ListCard({ title, team, dueDate, daysLeft }) {
                             />
                         </div>
                     </div>
-                    <div className=''>
+                    <div className='flex flex-col justify-between items-center'>
                         <span className='border-2 px-4 py-1 rounded-full text-[#394440] bg-[#EDFF87]'>{daysLeft} Days left</span>
+                        <img src={sub} alt="" className='h-6 w-6 cursor-pointer' onClick={handleSubTasks}/>
                     </div>
-                </div>
 
+                </div>
             </div>
+           
         </div>
     )
 }
