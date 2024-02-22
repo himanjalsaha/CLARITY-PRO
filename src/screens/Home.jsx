@@ -6,6 +6,7 @@ import Taskscomponent from '../components/Taskscomponent';
 import Analytics from '../components/Analytics'
 import Settings from '../components/Settings';
 import Chat from '../components/Chat';
+import HelpComponent from '../components/HelpComponent';
 const Home = () => {
   const [selectedComponent, setSelectedComponent] = useState('HomeScreen');
 
@@ -19,7 +20,8 @@ const Home = () => {
     TasksComponent: <Taskscomponent />,
     Analytics:<Analytics/>,
     Settings:<Settings/>,
-    Chat:<Chat/>
+    Chat:<Chat/>,
+    Help:<HelpComponent/>
   };
 
   return (

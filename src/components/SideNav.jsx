@@ -76,7 +76,7 @@ const SideNav = ({ onComponentChange }) => {
             <BiCog className="m-1 absolute" />
             <text className={`${!open ? 'scale-0' : ''} duration-300 mx-7`}>Settings</text>
           </button>
-          <button className="hover:bg-[#fa9b25] items-center rounded-lg w-full p-2 flex flex-row">
+          <button onClick={() => handleComponentClick('Help')} className="hover:bg-[#fa9b25] items-center rounded-lg w-full p-2 flex flex-row">
             <BiHelpCircle className="m-1 absolute" />
             <text className={`${!open ? 'scale-0' : ''} duration-300 mx-7`}>Help</text>
           </button>
