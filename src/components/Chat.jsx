@@ -6,7 +6,7 @@ const Chat = () => {
 
       <div class="flex h-screen antialiased text-gray-800">
         <div class="flex flex-row h-full w-full overflow-x-hidden">
-          <div class="flex flex-col p-1 w-80 bg-neutral-800 text-white flex-shrink-0 ">
+          <div class="flex flex-col p-1 w-80 bg-neutral-800 text-white border-r-2 border-white flex-shrink-0 ">
             <div class="flex flex-row items-center justify-center h-12 w-full">
               <div
                 class="flex items-center justify-center rounded-2xl text-indigo-700 bg-indigo-100 h-10 w-10"
@@ -31,9 +31,9 @@ const Chat = () => {
            
             <div class="flex flex-col mt-8 bg-neutral-700 p-2 h-full rounded">
               <div class="flex flex-row items-center justify-between text-xs">
-                <span class="font-bold">Active Conversations</span>
+                <span class="font-bold text-lg">Active Conversations</span>
                 <span
-                  class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
+                  class="flex items-center justify-center bg-neutral-900 p-3 h-4 w-4 rounded-full"
                 >4</span
                 >
               </div>
