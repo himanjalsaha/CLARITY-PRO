@@ -1,8 +1,8 @@
-# ClarityPro Help Center
+# CLARITY-PRO Help Center
 
 ## Overview
 
-Welcome to the ClarityPro Help Center repository! This repository contains the source code for the ClarityPro Help Center web application. The Help Center provides answers to frequently asked questions and allows users to submit their questions.
+Welcome to the CLARITY-PRO Help Center repository! This repository contains the source code for the CLARITY-PRO Help Center web application. The Help Center provides answers to frequently asked questions and allows users to submit their questions.
 
 ## Features
 
@@ -11,9 +11,10 @@ Welcome to the ClarityPro Help Center repository! This repository contains the s
 
 ## Technologies Used
 
-- React
-- Tailwind CSS
-- ...
+- **React:** A JavaScript library for building user interfaces.
+- **Tailwind CSS:** A utility-first CSS framework for rapidly building custom designs.
+- **Material-UI:** A popular React UI framework that implements Google's Material Design.
+- **Firebase:** A comprehensive platform for building and managing web and mobile applications, providing services like authentication and real-time database.
 
 ## Getting Started
 
@@ -26,4 +27,4 @@ Welcome to the ClarityPro Help Center repository! This repository contains the s
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/claritypro-help-center.git
+   git clone https://github.com/your-username/CLARITY-PRO.git
