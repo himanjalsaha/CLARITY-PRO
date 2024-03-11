@@ -18,17 +18,23 @@ export function Todo() {
 
     function numberOfDaysLeft(dueDate) {
         const today = new Date();
-
+    
+        // Check if the due date is in the past
+        if (dueDate < today) {
+            return 0; // Due date has passed, return 0 days left
+        }
+    
         // Calculate the difference in milliseconds
         const differenceMs = dueDate - today;
-
+    
         // Convert milliseconds to days
         const days = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
-
+    
         console.log(dueDate)
         console.log(days);
         return days;
     }
+    
 
     // // Usage example:
     // const dueDate = ;
@@ -110,7 +116,7 @@ export function Todo() {
 
 
 
-                <div className='absolute w-1/2 right-1/4 bottom-0 z-10'>
+                <div className='absolute w-1/2 right-5 bottom-0 z-10'>
                     {showSubtasks && <SubTasksModal title={todo[0].title} dueDate={todo[0].dueDate} priority={"normal"} setShowSubTasks={setShowSubTasks} showSubtasks={showSubtasks} />}
                 </div>
 
