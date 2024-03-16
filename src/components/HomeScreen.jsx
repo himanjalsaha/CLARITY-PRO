@@ -10,6 +10,7 @@ import { CustomizeNav } from './CustomizeNav';
 import TopNav from './TopNav';
 import { useContext } from 'react';
 import { Authcontext } from '../context/AuthContext';
+import analyticsmascot from '../assets/analyticsmascot.png'
 export function HomeScreen() {
     const {currentuser} = useContext(Authcontext)
     console.log(currentuser);
@@ -84,7 +85,7 @@ export function HomeScreen() {
 
 
                             <div className='flex flex-col justify-center items-center cursor-pointer'>
-                                <img src={noProjects} alt="justProjects" className='h-60 mt-2' />
+                                <img src={analyticsmascot} alt="justProjects" className='h-60 mt-2' />
                                 <div className='flex flex-row my-4'>
                                     <p className='border-2 mx-2 border-dotted rounded-xl p-2'>
                                         <MdAdd size={30} />

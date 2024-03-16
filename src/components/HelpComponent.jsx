@@ -43,8 +43,8 @@ const HelpComponent = () => {
 
   return (
     <div className='flex  justify-center w-full overflow-y-auto '>
-      <div className="parent flex flex-row gap-20 p-5 h-screen  ">
-        <div className="child1 flex-[0.4]">
+      <div className="parent flex flex-row gap-20 p-5 h-screen ">
+        <div className="child1 flex-[0.4] ">
           <img src={owl} alt="Owl" />
           
 
@@ -66,7 +66,7 @@ const HelpComponent = () => {
 </form>
 
         </div>
-        <div className="child2 flex-col flex-[0.6]">
+        <div className="child2 flex-col flex-[0.6] ">
           <div className="font-bold text-4xl text-orange-400">
             <p>Frequently asked</p>
             <p>questions</p>
