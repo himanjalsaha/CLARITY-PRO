@@ -60,6 +60,10 @@ export function ListCard({ title, team, dueDate, daysLeft,handleSubTasks }) {
                         <img src={sub} alt="" className='h-6 w-6 cursor-pointer' onClick={handleSubTasks}/>
                     </div>
 
+                    <div>
+                        
+                    </div>
+
                 </div>
             </div>
            

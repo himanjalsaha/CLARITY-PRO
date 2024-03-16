@@ -13,8 +13,8 @@ export function SubTasksModal({ title, dueDate, priority ,showSubtasks, setShowS
         setShowSubTasks(!showSubtasks);
     }
     return (
-        <div className='relative'>
-            <div className='h-96  rounded-t-2xl p-6 bg-gray-800'>
+        <div className={`relative transition-transform ease-in-out duration-500 ${showSubtasks ? ' translate-x-0' : 'translate-x-[100%]'}`}>
+            <div className='h-[626px] w-full p-6 bg-gray-800'>
                 <div className="flex h-96 gap-4 flex-col">
                     <div className="flex text-3xl font-sans  ">
                         <span>{title}</span>
