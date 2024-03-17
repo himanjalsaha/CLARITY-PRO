@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Column from './Column';
-
 const initialColumns = [
   { id: 'todo', title: 'To Do', taskIds: ['task-1', 'task-2', 'task-3', 'task-4'] },
   { id: 'inProgress', title: 'In Progress', taskIds: [] },

@@ -11,8 +11,9 @@ import TopNav from './TopNav';
 import { useContext } from 'react';
 import { Authcontext } from '../context/AuthContext';
 import analyticsmascot from '../assets/analyticsmascot.png'
+import { UserAuth } from '../context/AuthContext';
 export function HomeScreen() {
-    const {currentuser} = useContext(Authcontext)
+    const {currentuser} = UserAuth()
     console.log(currentuser);
 
     const [isSideNav,setIsSideNav] = useState(false)
