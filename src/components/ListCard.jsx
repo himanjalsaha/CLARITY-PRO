@@ -45,10 +45,10 @@ export function ListCard({ title, team, dueDate, daysLeft, handleSubTasks }) {
                     <div className='flex flex-col justify-between items-center'>
                         <span className='border-2 px-4 py-1 rounded-full text-[#394440] bg-[#EDFF87]'>{daysLeft} Days left</span>
                     </div>
-                    <img src={sub} alt="" className='h-6 w-6 cursor-pointer' onClick={handleSubTasks} />
 
-                    <div>
 
+                    <div onClick={handleSubTasks} >
+                        <img src={sub} alt="" className='h-6 w-6 cursor-pointer' />
                     </div>
 
                 </div>

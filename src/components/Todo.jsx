@@ -11,14 +11,7 @@ export function Todo() {
         { id: '2', title: "create ui", dueDate: "26-02-24" },
     ]);
 
-
-
     const [showSubtasks, setShowSubTasks] = useState(false);
-  
-    function handleSubTasks() {
-        setShowSubTasks(!showSubtasks);
-    }
-
    
     const handleDragEnd = (result) => {
         if (!result.destination) return;
@@ -27,6 +20,12 @@ export function Todo() {
         items.splice(result.destination.index, 0, reorderedItem);
         setTodo(items);
     };
+
+
+    function handleSubtasks(){
+        setShowSubTasks(!showSubtasks);
+    }
+
 
     function numberOfDaysLeft(dueDate) {
         const today = new Date();
@@ -111,6 +110,7 @@ export function Todo() {
                                                     title={task.title}
                                                     dueDate={task.dueDate}
                                                     startDate={task.startDate}
+                                                    handleSubTasks={handleSubtasks}
                                                     priority={task.priority}
                                                     daysLeft={numberOfDaysLeft(parseDate(task.dueDate))}
                                                 />
@@ -124,11 +124,11 @@ export function Todo() {
                     </Droppable>
 
                     <div>
-                        {todo.map((task) => (
-                            <div key={task.id} className='absolute w-1/2 right-5 bottom-0 z-10'>
-                                {showSubtasks ? <SubTaskModal title={task.title} dueDate={task.dueDate} priority={"normal"} open={showSubtasks} setOpen={setShowSubTasks}/> : null}
+                        
+                            <div className=''>
+                                {showSubtasks && <SubTaskModal title={"hrllo"} dueDate={"24-12-2024"} priority={"normal"} /> }
                             </div>
-                        ))}
+                    
                     </div>
 
                     {isModalOpen && (
