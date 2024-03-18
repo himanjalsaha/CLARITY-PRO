@@ -5,7 +5,9 @@ import { useContext } from 'react';
 import { Authcontext } from '../context/AuthContext';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
+import BackgroundLetterAvatar from './BackgroundLetterAvatar';
+import { useState } from 'react';
+import { UserDetailModal } from './UserDetailModal';
 
 const style = {
     position: 'absolute',
@@ -15,23 +17,24 @@ const style = {
     width: 800,
     bgcolor: '#4A5451',
     border: '2px solid #000',
-    borderRadius : 10,
+    borderRadius: 10,
     boxShadow: 24,
     p: 4,
 };
 
 export default function SubTaskModal({ title, dueDate, priority }) {
     const { currentuser } = useContext(Authcontext)
-    const [open, setOpen] = React.useState(true);
-    
-    function handleClose(){
+    const [open, setOpen] = useState(true);
+    const [hidden, setHidden] = useState(true);
+
+    function handleClose() {
         setOpen(!open);
     }
-    
+
 
     return (
         <div>
-          
+
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -53,7 +56,14 @@ export default function SubTaskModal({ title, dueDate, priority }) {
                             {/* Assignee */}
                             <div className="flex gap-6 items-center">
                                 <span className=' text-white'>Assignee :</span>
-                                <span className='text-white'>{currentuser && currentuser.displayName}</span>
+                                <div className='flex gap-2 items-center cursor-pointer' 
+                                    onMouseEnter={() => setHidden(false)}
+                                    onMouseLeave={() => setHidden(true)}>
+                                    <BackgroundLetterAvatar user={currentuser.displayName} />
+                                    <span className='text-white '>{currentuser && currentuser.displayName}</span>
+                                    {hidden ? null : <UserDetailModal username={currentuser.displayName} email={currentuser.email}
+                                    login={currentuser.metadata.lastSignInTime}/>}
+                                </div>
                             </div>
 
 
