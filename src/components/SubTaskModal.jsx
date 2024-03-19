@@ -189,9 +189,12 @@ export default function SubTaskModal({ title, dueDate, priority }) {
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                     </svg>
                                 </div>
-                                <div className='bg-[#A5DD9B] text-green-800 flex flex-col cursor-pointer  items-center px-2 py-1 rounded-lg' >
+                                <div className='bg-[#A5DD9B] text-green-800 flex flex-col cursor-pointer px-2 rounded-lg' >
                                     {result.map((username, index) => (
-                                        <div key={index} onClick={() => handleSelectedUsername(username)}>{username}</div>
+                                        <div className='flex gap-2 items-center p-4'>
+                                            <BackgroundLetterAvatar key={index} user={username} />
+                                            <div key={index} onClick={() => handleSelectedUsername(username)}>{username}</div> 
+                                        </div>
                                     ))}
                                 </div>
                             </div> : null}
