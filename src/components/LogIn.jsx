@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import img from '../assets/clarityprotemp.jpg';
 import gif from '../assets/program.gif';
-import {createUserWithEmailAndPassword  , signInWithEmailAndPassword , updateProfile } from 'firebase/auth'
+import {createUserWithEmailAndPassword  , signInWithEmailAndPassword , updateProfile  } from 'firebase/auth'
+import { setDoc ,doc } from 'firebase/firestore';
 import {auth} from '../Firebase/firebase'
 import { UserCredentials } from '../screens/UserCredentials';
 import { useNavigate } from 'react-router-dom';
 import SigninModal from './SigninModal';
+import { db } from '../Firebase/firebase';
+
 export function LogIn() {
     const navigate = useNavigate()
     const [showSignUp, setShowSignUp] = useState(false);
@@ -19,6 +22,7 @@ export function LogIn() {
             // Create user with email and password
            const {user} =  await signInWithEmailAndPassword(auth, email, password);
             console.log(user);
+
             // Listen for authentication state changes
             navigate('/')
         } catch(error) {
@@ -39,6 +43,13 @@ export function LogIn() {
            const {user} =  await createUserWithEmailAndPassword(auth, email, password);
            await updateProfile(user , {displayName:username})
             console.log(user);
+
+            await setDoc(doc(db, "users", user.uid), {
+                uid: user.uid,
+                username,
+                email,
+              });
+  
             // Listen for authentication state changes
            navigate('/')
           
