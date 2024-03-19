@@ -3,8 +3,9 @@ import 'react-circular-progressbar/dist/styles.css';
 import sub from '../assets/subtask.png'
 
 
-export function ListCard({ title, team, dueDate, daysLeft, handleSubTasks }) {
 
+
+export function ListCard({ title, team, dueDate, daysLeft, handleSubTasks }) {
 
     return (
         <div className='relative '>
@@ -21,7 +22,7 @@ export function ListCard({ title, team, dueDate, daysLeft, handleSubTasks }) {
                                 styles={{
                                     root: {},
                                     path: {
-                                        stroke: `rgba(237, 254, 134, ${(1 / 4) * 100})`,
+                                        stroke: `rgb(165 ,221 ,155, ${(1 / 4) * 100})`,
                                         strokeLinecap: 'round',
                                         transition: 'stroke-dashoffset 0.5s ease 0s',
                                     },
@@ -32,7 +33,7 @@ export function ListCard({ title, team, dueDate, daysLeft, handleSubTasks }) {
                                         transformOrigin: 'center center',
                                     },
                                     text: {
-                                        fill: '#EDFF87',
+                                        fill: '#A5DD9B',
                                         fontSize: '16px',
                                     },
                                     background: {
@@ -43,12 +44,15 @@ export function ListCard({ title, team, dueDate, daysLeft, handleSubTasks }) {
                         </div>
                     </div>
                     <div className='flex flex-col justify-between items-center'>
-                        <span className='border-2 px-4 py-1 rounded-full text-[#394440] bg-[#EDFF87]'>{daysLeft} Days left</span>
+                        <span className='border-2 px-4 py-1 rounded-full text-[#394440] bg-[#A5DD9B]'>{daysLeft} Days left</span>
                     </div>
 
 
-                    <div onClick={handleSubTasks} >
-                        <img src={sub} alt="" className='h-6 w-6 cursor-pointer' />
+                    <div onClick={handleSubTasks} className='cursor-pointer'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#A5DD9B" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776"  className='cursor-pointer'/>
+                        </svg>
+
                     </div>
 
                 </div>
