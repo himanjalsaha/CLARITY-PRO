@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import Drawer from '@mui/material/Drawer';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { collection, query, where } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../Firebase/firebase';
+import Avatar from '@mui/material/Avatar';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+import { HiUserRemove } from "react-icons/hi";
+import Chip from '@mui/material/Chip';
+import LinearProgress from '@mui/material/LinearProgress';
+import {  addDoc } from 'firebase/firestore';
+;
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 500,
   bgcolor: 'white',
-  border: '2px solid #000',
-  boxShadow: 24,
+  borderRight: '2px solid #000',
   p: 9,
 };
 
@@ -38,16 +40,39 @@ export default function TaskModal() {
   const [open, setOpen] = useState(false);
   const [subtasks, setSubtasks] = useState([]);
   const [newSubtask, setNewSubtask] = useState('');
-  const [users, setUsers] = useState([]); // State for storing users
-  const [newUser, setNewUser] = useState(''); // State for input value for new user
-
+  const [users, setUsers] = useState({});
+  const [newUser, setNewUser] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [userexists , setuserexists]  = useState(false)
+  const [assignedUsers, setAssignedUsers] = useState({});
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission here
-    handleClose(); // Close modal after submission
+    
+    // Create a new project object with the form data
+    const newProject = {
+      projectName: event.target.taskName.value,
+      dueDate: event.target.dueDate.value,
+      subtasks: subtasks.map((subtask, index) => ({ name: subtask, assignedUsers: assignedUsers[`Subtask ${index + 1}`] || [] })),
+    };
+  
+    try {
+      // Add the new project to the "projects" collection
+      const docRef = await addDoc(collection(db, 'projects'), newProject);
+      console.log('Document written with ID: ', docRef.id);
+  
+      // Reset form fields and state after successful submission
+      event.target.reset();
+      setSubtasks([]);
+      setAssignedUsers({});
+      handleClose();
+    } catch (error) {
+      console.error('Error adding document: ', error);
+      // Handle error if needed
+    }
   };
 
   const handleAddSubtask = () => {
@@ -68,26 +93,59 @@ export default function TaskModal() {
     updatedSubtasks.splice(index, 1);
     setSubtasks(updatedSubtasks);
   };
-
-  const handleAddUser = () => {
-    const usersRef = collection(db, "users");
-
-// Create a query against the collection.
-const q = query(usersRef, where("username", "==", users));
-console.log(q);
+  
+  const handleDeleteUser = (userIdToDelete) => {
+    // Filter out the user with the given userIdToDelete
+    const updatedUsers = { ...users };
+    delete updatedUsers[userIdToDelete];
+    setUsers(updatedUsers);
   };
+
+  const searchUser = async () => {
+    setLoading(true); 
+    const usersRef = collection(db, "users");
+    const q = query(usersRef, where("username", "==", newUser));
+    const querySnapshot = await getDocs(q);
+    try {
+ 
+        const fetchedUsers = {}; 
+        querySnapshot.forEach((doc) => {
+          const userData = doc.data();
+          fetchedUsers[doc.id] = userData; 
+        });
+        setUsers(prevUsers => ({ ...prevUsers, ...fetchedUsers })); 
+        if (Object.keys(fetchedUsers).length > 0) {
+          setuserexists(false); // Set userexists to false if users are found
+        } else {
+          setuserexists(true); // Set userexists to true if no users found
+        }
+        setLoading(false);
+
+        console.log(users);
+
+    
+ 
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+  
+  const handleAssignUser = (index, userId) => {
+    setAssignedUsers({ ...assignedUsers, [index]: userId });
+  };
+  
 
   return (
     <div className=' overflow-auto'>
       <Button onClick={handleOpen}>Add Task</Button>
-      <Modal
+      <Drawer
+        anchor="right"
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography variant="h6" component="h2">
             Create a project
           </Typography>
           <form onSubmit={handleSubmit}>
@@ -121,28 +179,48 @@ console.log(q);
               margin="normal"
             >
               {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+                <MenuItem key={option.value}  value={option.value}>
                   {option.label}
                 </MenuItem>
               ))}
             </TextField>
             {/* Users */}
-            <Typography variant="subtitle1" gutterBottom>
+           
+            
+            {Object.keys(users).length > 0 && (
+              
+  <>
+   <Typography variant="subtitle1" gutterBottom>
               Users:
+        
             </Typography>
-            {users.map((user, index) => (
-              <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
-                <Typography>{user}</Typography>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  onClick={() => handleDeleteUser(index)}
-                  style={{ marginLeft: '8px' }}
-                >
-                  Delete
-                </Button>
-              </div>
-            ))}
+    {Object.keys(users).map((userId) => (
+            <div key={userId} className=' rounded-lg divide-x-2  flex items-center mb-4'>
+        <Avatar className='m-1 divide-y-2 ' sx={{ bgcolor: deepOrange[500] }}>{users[userId].username.substring(0, 1)}</Avatar>
+        <div className='m-1 rounded-2xl bg-violet-300  p-2'>{users[userId].username}</div>
+        <div className='m-1 rounded-md bg-yellow-300 p-2'>{users[userId].email}</div>
+        <Button
+        
+          onClick={() => handleDeleteUser(userId)}
+     
+        >
+          <HiUserRemove className='w-5 h-5 '/>
+          
+        </Button>
+       
+      </div>
+      
+
+
+  
+      
+    ))}
+  </>
+)}
+{userexists && <Chip label="No users found"/>}
+
+      {loading &&    <LinearProgress />}
+
             <TextField
               id="userInput"
               label="Add User"
@@ -153,10 +231,11 @@ console.log(q);
               onChange={(e) => setNewUser(e.target.value)}
             />
             <Button
+            required
               type="button"
               variant="contained"
               color="primary"
-              onClick={handleAddUser}
+              onClick={searchUser}
             >
               Add User
             </Button>
@@ -164,8 +243,10 @@ console.log(q);
             <Typography variant="subtitle1" gutterBottom>
               Subtasks:
             </Typography>
+            {/* Render input fields for each subtask */}
             {subtasks.map((subtask, index) => (
               <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+                {/* Input field for subtask */}
                 <TextField
                   label={`Subtask ${index + 1}`}
                   variant="outlined"
@@ -174,6 +255,25 @@ console.log(q);
                   value={subtask}
                   onChange={(e) => handleSubtaskChange(index, e.target.value)}
                 />
+                {/* Dropdown menu to assign user to subtask */}
+                <TextField
+  select
+  label="Assign User"
+  variant="outlined"
+  margin="normal"
+  fullWidth
+  value={assignedUsers[index] || ''}
+  onChange={(e) => handleAssignUser(index, e.target.value)}
+>
+
+                  {/* Populate dropdown with usernames */}
+                  {Object.keys(users).map((userId) => (
+                    <MenuItem key={userId} value={userId}>
+                      {users[userId].username}
+                    </MenuItem>
+                  ))}
+                </TextField>
+                {/* Button to delete subtask */}
                 <Button
                   variant="outlined"
                   color="secondary"
@@ -207,7 +307,7 @@ console.log(q);
             </Button>
           </form>
         </Box>
-      </Modal>
+      </Drawer>
     </div>
   );
 }

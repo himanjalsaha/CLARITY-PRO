@@ -10,11 +10,17 @@ export const AuthcontextProvider = ({children})=>{
        const unsub =  onAuthStateChanged(auth,(user)=>{
             setcurrentuser(user)
             console.log(user);
+            
         })
         return () =>{
             unsub()
         }
     },[]);
+
+    
+
+
+
 
     const value = {
         currentuser
