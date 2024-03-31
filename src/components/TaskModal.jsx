@@ -14,6 +14,7 @@ import Chip from '@mui/material/Chip';
 import LinearProgress from '@mui/material/LinearProgress';
 import {  addDoc } from 'firebase/firestore';
 ;
+import {AiFillDelete} from 'react-icons/ai'
 const style = {
   width: 500,
   bgcolor: 'white',
@@ -23,15 +24,15 @@ const style = {
 
 const currencies = [
   {
-    value: 'USD',
+    value: 'high',
     label: 'High',
   },
   {
-    value: 'EUR',
+    value: 'medium',
     label: 'Medium',
   },
   {
-    value: 'BTC',
+    value: 'low',
     label: 'Low',
   },
 ];
@@ -56,6 +57,7 @@ export default function TaskModal() {
     const newProject = {
       projectName: event.target.taskName.value,
       dueDate: event.target.dueDate.value,
+      priority: event.target.priority.value, // Access priority value
       subtasks: subtasks.map((subtask, index) => ({ name: subtask, assignedUsers: assignedUsers[`Subtask ${index + 1}`] || [] })),
     };
   
@@ -131,11 +133,19 @@ export default function TaskModal() {
     }
   };
   
-  const handleAssignUser = (index, userId) => {
-    setAssignedUsers({ ...assignedUsers, [index]: userId });
+  const handleAssignUser = (subtaskIndex, userId) => {
+    // Get the current assigned users for the subtask
+    const currentAssignedUsers = assignedUsers[subtaskIndex] || [];
+    
+    // Update the assigned users for the subtask
+    const updatedAssignedUsers = {
+      ...assignedUsers,
+      [subtaskIndex]: [...currentAssignedUsers, userId],
+    };
+  
+    setAssignedUsers(updatedAssignedUsers);
   };
   
-
   return (
     <div className=' overflow-auto'>
       <Button onClick={handleOpen}>Add Task</Button>
@@ -169,21 +179,23 @@ export default function TaskModal() {
                 shrink: true,
               }}
             />
-            <TextField
-              id="outlined-select-currency"
-              select
-              label="Priority"
-              defaultValue="EUR"
-              helperText="Please select your currency"
-              fullWidth
-              margin="normal"
-            >
-              {currencies.map((option) => (
-                <MenuItem key={option.value}  value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
+          <TextField
+  id="priority"
+  select
+  label="Priority"
+  defaultValue="EUR"
+  helperText="Please select priority"
+  fullWidth
+  margin="normal"
+  name="priority" // Add name attribute for form submission
+>
+  {currencies.map((option) => (
+    <MenuItem key={option.value} value={option.value}>
+      {option.label}
+    </MenuItem>
+  ))}
+</TextField>
+
             {/* Users */}
            
             
@@ -196,7 +208,7 @@ export default function TaskModal() {
             </Typography>
     {Object.keys(users).map((userId) => (
             <div key={userId} className=' rounded-lg divide-x-2  flex items-center mb-4'>
-        <Avatar className='m-1 divide-y-2 ' sx={{ bgcolor: deepOrange[500] }}>{users[userId].username.substring(0, 1)}</Avatar>
+              <img src={users[userId].photourl} alt="" srcset="" className='w-10 h-10 rounded-full' />
         <div className='m-1 rounded-2xl bg-violet-300  p-2'>{users[userId].username}</div>
         <div className='m-1 rounded-md bg-yellow-300 p-2'>{users[userId].email}</div>
         <Button
@@ -262,14 +274,16 @@ export default function TaskModal() {
   variant="outlined"
   margin="normal"
   fullWidth
-  value={assignedUsers[index] || ''}
+  value={assignedUsers[index]  || ''}
   onChange={(e) => handleAssignUser(index, e.target.value)}
 >
 
                   {/* Populate dropdown with usernames */}
                   {Object.keys(users).map((userId) => (
+                    
                     <MenuItem key={userId} value={userId}>
-                      {users[userId].username}
+                      <img src={users[userId].photourl} className='w-8 h-8 rounded-full' alt="" srcset="" />
+                      {    users[userId].username + "|" + users[userId].email }
                     </MenuItem>
                   ))}
                 </TextField>
@@ -278,9 +292,9 @@ export default function TaskModal() {
                   variant="outlined"
                   color="secondary"
                   onClick={() => handleDeleteSubtask(index)}
-                  style={{ marginLeft: '8px' }}
+                  style={{ marginLeft: '4px' }}
                 >
-                  Delete
+                  <AiFillDelete/>
                 </Button>
               </div>
             ))}
