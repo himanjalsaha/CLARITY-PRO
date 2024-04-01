@@ -1,26 +1,67 @@
 // Kanban.js
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import Column from './Column';
-const initialColumns = [
-  { id: 'todo', title: 'To Do', taskIds: ['task-1', 'task-2', 'task-3', 'task-4'] },
-  { id: 'inProgress', title: 'In Progress', taskIds: [] },
-  { id: 'done', title: 'Done', taskIds: [] },
+
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../Firebase/firebase'; // Import your Firebase configuration
+// const initialColumns = [
+//   { id: 'todo', title: 'To Do', taskIds: ['task-1', 'task-2', 'task-3', 'task-4'] },
+//   { id: 'inProgress', title: 'In Progress', taskIds: [] },
+//   { id: 'done', title: 'Done', taskIds: [] },
   
-  // Add more columns as needed
-];
+//   // Add more columns as needed
+// ];
 
-const initialTasks = {
-  'task-1': { id: 'task-1', content: 'Ui design' },
-  'task-2': { id: 'task-2', content: 'Report to hr' },
-  'task-3': { id: 'task-3', content: 'Task 3' },
-  'task-4': { id: 'task-4', content: 'design' },
+// const initialTasks = {
+//   'task-1': { id: 'task-1', content: 'Ui design' },
+//   'task-2': { id: 'task-2', content: 'Report to hr' },
+//   'task-3': { id: 'task-3', content: 'Task 3' },
+//   'task-4': { id: 'task-4', content: 'design' },
 
-};
+// };
 
 const Kanban = () => {
-  const [columns, setColumns] = useState(initialColumns);
-  const [tasks, setTasks] = useState(initialTasks);
+  
+  const [columns, setColumns] = useState([]);
+  const [tasks, setTasks] = useState({});
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'projects'));
+        const fetchedTasks = {};
+        querySnapshot.forEach((doc) => {
+          fetchedTasks[doc.id] = { id: doc.id, content: doc.data().projectName , subtasks:doc.data().subtasks ,priority:doc.data().priority , description : doc.data().description , createdat :doc.data().createdtime, duedate : doc.data().dueDate };
+        });
+        setTasks(fetchedTasks);
+      } catch (error) {
+        console.error('Error fetching tasks:', error);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+  useEffect(() => {
+    const initialColumns = [
+      { id: 'todo', title: 'To Do', taskIds: Object.keys(tasks) },
+      { id: 'inProgress', title: 'In Progress', taskIds: [] },
+      { id: 'done', title: 'Done', taskIds: [] },
+    ];
+
+
+
+    setColumns(initialColumns);
+   
+  
+  },
+   [tasks]);
+
+   
+
+  
+ 
+
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
