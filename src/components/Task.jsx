@@ -26,8 +26,8 @@ const Task = ({ task, index }) => {
           ref={provided.innerRef}
           className={`bg-gray-500 m-2 p-2 rounded ${snapshot.isDragging && 'opacity-50'}`}
         >
-          <div className='flex flex-row justify-between items-center'>
-          <div className='text-sm bg-yellow-300 rounded-xl p-1 text-black'>{task.duedate}</div>
+          <div className='flex flex-row justify-between items-center '>
+          <div className='text-sm bg-yellow-300 rounded-xl p-1 text-black'>{"due:"+task.duedate}</div>
           <div className="mb-2 font-bold text-center p-1  ">{task.content}</div>
 
           <div><CiMenuBurger className='w-5 h-5'/></div>
