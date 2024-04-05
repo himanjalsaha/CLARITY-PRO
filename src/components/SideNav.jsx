@@ -19,7 +19,7 @@ const SideNav = ({ onComponentChange }) => {
   };
 
   return (
-    <div className={`border-r-white border-r-2 bg-black h-screen ${open ? 'w-80' : 'w-20'} duration-300 relative`}>
+    <div className={`border-r-white border-r-2  bg-[#141518] h-screen ${open ? 'w-80' : 'w-20'} duration-300 relative`}>
       <div className="flex flex-row items-center justify-between text-white m-5">
         <div className="logo flex flex-row items-center">
           <GiAbstract118 className={`w-10 h-10 duration-500 ${open ? 'rotate-[360deg]' : ''}`} />
