@@ -8,7 +8,7 @@ import { UserCredentials } from '../screens/UserCredentials';
 import { useNavigate } from 'react-router-dom';
 import SigninModal from './SigninModal';
 import { db } from '../Firebase/firebase';
-import {getStorage,ref,uploadBytes,getDownloadURL,uploadBytesResumable} from 'firebase/storage'
+import {getStorage,ref,uploadBytes,getDownloadURL,uploadBytesResumable } from 'firebase/storage'
 import LinearProgress from '@mui/material/LinearProgress';
 export function LogIn() {
     const navigate = useNavigate()
@@ -48,14 +48,19 @@ export function LogIn() {
             setload(true)
             // Create user with email and password
            const {user} =  await createUserWithEmailAndPassword(auth, email, password);
+     
            const filename = `image_${Date.now()}`
            const storage = getStorage()
            const storageref = ref(storage,`profilepic/${filename}`)
            await uploadBytesResumable(storageref, pfp);
            const downloadURL = await getDownloadURL(storageref);
 
-           await updateProfile(user , {displayName:username ,   photoURL: downloadURL, })
-            console.log(user);
+        
+// Update user profile with display name and photo URL
+await updateProfile(user, {
+    displayName: username,
+    photoURL: downloadURL // Add photoURL field to update profile with the photo URL
+});
 
             await setDoc(doc(db, "users", user.uid), {
                 uid: user.uid,

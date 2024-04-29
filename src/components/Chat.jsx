@@ -11,7 +11,6 @@ const Chat = () => {
   const [sentMessage, setSentMessage] = useState('');
   const [showmessage, setShowmessage] = useState([]);
   const [error, setError] = useState('');
-  console.log("dhswidhw")
   useEffect(() => {
     const unsubscribe = onSnapshot(query(collection(db, 'messages'), orderBy('time', 'desc')), (snapshot) => {
       const updatedMessages = [];
@@ -76,12 +75,11 @@ const Chat = () => {
     return unsubscribe;
   }, []);
 
-  const getdetails = (item) =>{
-    setDetails(item)
-    
-
+  const getdetails =  (item) => {
+    console.log('Clicked user:', item);
+    setDetails(item);
   }
-
+  
     useEffect(() => {
     console.log('selected user:' +details); // Log details whenever it changes
   }, [details]);
@@ -126,7 +124,7 @@ const Chat = () => {
               </div>
               {users.filter(user => user.uid !== currentuser.uid).map((user) => (
              
-                  <button  key={user.id} className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2" onlick={() => getdetails(user)}>
+                  <button  key={user.id} className="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2" onClick={() => getdetails(user)}>
                     <img src={user.photourl} alt="" className='w-8 h-8 rounded-full' />
                     <div className="ml-2 text-sm font-semibold">{user.username}</div>
                   </button>
@@ -137,7 +135,7 @@ const Chat = () => {
           </div>
 
           {details  ? (
-              <div className="flex flex-col h-full p-6">
+              <div className="flex flex-col h-full w-full p-6">
               <div className='text-white flex items-center gap-2  '><img src={details.photourl} className='w-8 h-8 rounded-full' alt="" /><text>{details.username}</text></div>
   
               
@@ -240,7 +238,7 @@ const Chat = () => {
       </div>
 
     </div>
-  );
+  )
 };
 
 export default Chat
